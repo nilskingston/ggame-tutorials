@@ -29,5 +29,23 @@ def step():
         if ball.x + ball.width > SCREEN_WIDTH or ball.x < 0:
             ball.x -= ball.dir
             reverse(ball)    
+
+# Handle the space key
+def spaceKey(event):
+    ball.go = not ball.go
+
+# Handle the "reverse" key
+def reverseKey(event):
+    reverse(ball)
+
+# Handle the mouse click
+def mouseClick(event):
+    ball.x = event.x
+    ball.y = event.y
+
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+# Set up event handlers for the app
+myapp.listenKeyEvent('keydown', 'space', spaceKey)
+myapp.listenKeyEvent('keydown', 'r', reverseKey)
+myapp.listenMouseEvent('click', mouseClick)
 myapp.run(step)
