@@ -27,7 +27,7 @@ ball.go = True
 
 def reverse(b):
     b.dir *= -1
-    
+    pop.play()
 # Set up function for handling screen refresh
 def step():
     if ball.go:
